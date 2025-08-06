@@ -2,7 +2,6 @@ import Lib.*;
 import Lib.Discount.*;
 
 public class App {
-
     private static int passedCount = 0;
     private static int failedCount = 0;
 

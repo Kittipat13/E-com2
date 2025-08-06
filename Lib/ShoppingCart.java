@@ -78,14 +78,17 @@ public class ShoppingCart {
         return total;
     }
 
+    
     public int getItemCount() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getItemCount'");
+    int total = 0;
+    for (CartItem item : cartItems) {
+        total += item.getQuantity();
     }
+    return total;
 
+}
     public void clearCart() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clearCart'");
-    }
+    cartItems.clear();
+}
 }
 
