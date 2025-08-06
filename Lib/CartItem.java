@@ -1,12 +1,9 @@
 package Lib;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CartItem {
     private final Product product;
     private int quantity;
-    private List<CartItem> cartItems = new ArrayList<>();
+    
 
     public CartItem(Product product, int quantity) {
         this.product = product;

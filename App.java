@@ -52,10 +52,20 @@ public class App {
         check("Add item to meet bulk discount threshold", cart.getItemCount() == 2 &&
               cart.getTotalPrice() == 30.0 + (30.0 * 0.9)); // 30 + 27 = 57.0
 
-        cart.addItem("P999", 1); // ไม่พบสินค้า
+        // ✅ ดักจับกรณีไม่พบสินค้า
+        try {
+            cart.addItem("P999", 1); // ไม่พบสินค้า
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
         check("Adding non-existent product does not change cart", cart.getItemCount() == 2 && cart.getTotalPrice() == 57.0);
 
-        cart.addItem("P003", 0); // Quantity 0
+        // ✅ ดักจับกรณีจำนวนเป็น 0
+        try {
+            cart.addItem("P003", 0); // Quantity 0
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
         check("Adding item with zero quantity does not change cart", cart.getItemCount() == 2 && cart.getTotalPrice() == 57.0);
 
         cart.removeItem("P002"); // ลบ Soda
@@ -103,3 +113,4 @@ public class App {
         }
     }
 }
+

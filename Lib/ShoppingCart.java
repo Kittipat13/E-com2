@@ -78,15 +78,10 @@ public class ShoppingCart {
         return total;
     }
 
-    
     public int getItemCount() {
-    int total = 0;
-    for (CartItem item : cartItems) {
-        total += item.getQuantity();
-    }
-    return total;
-
+    return cartItems.size();
 }
+
     public void clearCart() {
     cartItems.clear();
 }
